@@ -1,0 +1,178 @@
+[
+  {
+    "id": "book_001",
+    "title": "Clean Code: A Handbook of Agile Software Craftsmanship",
+    "author": "Robert C. Martin",
+    "pages": 464,
+    "tag": "Programming",
+    "dateAdded": "2025-09-15",
+    "coverUrl": "https://covers.openlibrary.org/b/isbn/9780132350884-L.jpg",
+    "createdAt": "2025-09-15T10:30:00Z",
+    "updatedAt": "2025-09-15T10:30:00Z"
+  },
+  {
+    "id": "book_002",
+    "title": "The Great Gatsby",
+    "author": "F. Scott Fitzgerald",
+    "pages": 180,
+    "tag": "Fiction",
+    "dateAdded": "2025-09-20",
+    "coverUrl": "https://covers.openlibrary.org/b/isbn/9780743273565-L.jpg",
+    "createdAt": "2025-09-20T14:30:00Z",
+    "updatedAt": "2025-09-20T14:30:00Z"
+  },
+  {
+    "id": "book_003",
+    "title": "Introduction to Algorithms",
+    "author": "Thomas H. Cormen",
+    "pages": 1312,
+    "tag": "Textbook",
+    "dateAdded": "2025-08-30",
+    "coverUrl": "https://covers.openlibrary.org/b/isbn/9780262033848-L.jpg",
+    "createdAt": "2025-08-30T09:15:00Z",
+    "updatedAt": "2025-08-30T09:15:00Z"
+  },
+  {
+    "id": "book_004",
+    "title": "Atomic Habits",
+    "author": "James Clear",
+    "pages": 320,
+    "tag": "Self-Help",
+    "dateAdded": "2025-10-01",
+    "coverUrl": "https://covers.openlibrary.org/b/isbn/9780735211292-L.jpg",
+    "createdAt": "2025-10-01T16:45:00Z",
+    "updatedAt": "2025-10-01T16:45:00Z"
+  },
+  {
+    "id": "book_005",
+    "title": "1984",
+    "author": "George Orwell",
+    "pages": 328,
+    "tag": "Fiction",
+    "dateAdded": "2025-10-05",
+    "coverUrl": "https://covers.openlibrary.org/b/isbn/9780451524935-L.jpg",
+    "createdAt": "2025-10-05T11:20:00Z",
+    "updatedAt": "2025-10-05T11:20:00Z"
+  },
+  {
+    "id": "book_006",
+    "title": "You Don't Know JS: Scope & Closures",
+    "author": "Kyle Simpson",
+    "pages": 98,
+    "tag": "Programming",
+    "dateAdded": "2025-10-08",
+    "coverUrl": "https://covers.openlibrary.org/b/isbn/9781449335588-L.jpg",
+    "createdAt": "2025-10-08T13:00:00Z",
+    "updatedAt": "2025-10-08T13:00:00Z"
+  },
+  {
+    "id": "book_007",
+    "title": "Sapiens: A Brief History of Humankind",
+    "author": "Yuval Noah Harari",
+    "pages": 443,
+    "tag": "Non-Fiction",
+    "dateAdded": "2025-09-18",
+    "coverUrl": "https://covers.openlibrary.org/b/isbn/9780062316097-L.jpg",
+    "createdAt": "2025-09-18T08:30:00Z",
+    "updatedAt": "2025-09-18T08:30:00Z"
+  },
+  {
+    "id": "book_008",
+    "title": "The Pragmatic Programmer",
+    "author": "Andrew Hunt",
+    "pages": 352,
+    "tag": "Programming",
+    "dateAdded": "2025-09-25",
+    "coverUrl": "https://covers.openlibrary.org/b/isbn/9780135957059-L.jpg",
+    "createdAt": "2025-09-25T15:10:00Z",
+    "updatedAt": "2025-09-25T15:10:00Z"
+  },
+  {
+    "id": "book_009",
+    "title": "To Kill a Mockingbird",
+    "author": "Harper Lee",
+    "pages": 281,
+    "tag": "Fiction",
+    "dateAdded": "2025-10-10",
+    "coverUrl": "https://covers.openlibrary.org/b/isbn/9780061120084-L.jpg",
+    "createdAt": "2025-10-10T12:00:00Z",
+    "updatedAt": "2025-10-10T12:00:00Z"
+  },
+  {
+    "id": "book_010",
+    "title": "Thinking Fast and Slow",
+    "author": "Daniel Kahneman",
+    "pages": 499,
+    "tag": "Psychology",
+    "dateAdded": "2025-10-12",
+    "coverUrl": "https://covers.openlibrary.org/b/isbn/9780374533557-L.jpg",
+    "createdAt": "2025-10-12T09:45:00Z",
+    "updatedAt": "2025-10-12T09:45:00Z"
+  },
+  {
+    "id": "book_011",
+    "title": "The Hobbit",
+    "author": "J.R.R. Tolkien",
+    "pages": 310,
+    "tag": "Fantasy",
+    "dateAdded": "2025-09-28",
+    "coverUrl": "https://covers.openlibrary.org/b/isbn/9780547928227-L.jpg",
+    "createdAt": "2025-09-28T14:20:00Z",
+    "updatedAt": "2025-09-28T14:20:00Z"
+  },
+  {
+    "id": "book_012",
+    "title": "A Game of Thrones",
+    "author": "George R.R. Martin",
+    "pages": 694,
+    "tag": "Fantasy",
+    "dateAdded": "2025-10-13",
+    "coverUrl": "https://covers.openlibrary.org/b/isbn/9780553103540-L.jpg",
+    "createdAt": "2025-10-13T18:00:00Z",
+    "updatedAt": "2025-10-13T18:00:00Z"
+  },
+  {
+    "id": "book_013",
+    "title": "Design Patterns: Elements of Reusable Object-Oriented Software",
+    "author": "Erich Gamma",
+    "pages": 395,
+    "tag": "Programming",
+    "dateAdded": "2025-10-03",
+    "coverUrl": "https://covers.openlibrary.org/b/isbn/9780201633610-L.jpg",
+    "createdAt": "2025-10-03T10:15:00Z",
+    "updatedAt": "2025-10-03T10:15:00Z"
+  },
+  {
+    "id": "book_014",
+    "title": "The Lean Startup",
+    "author": "Eric Ries",
+    "pages": 336,
+    "tag": "Business",
+    "dateAdded": "2025-10-07",
+    "coverUrl": "https://covers.openlibrary.org/b/isbn/9780307887894-L.jpg",
+    "createdAt": "2025-10-07T16:30:00Z",
+    "updatedAt": "2025-10-07T16:30:00Z"
+  },
+  {
+    "id": "book_015",
+    "title": "Eloquent JavaScript",
+    "author": "Marijn Haverbeke",
+    "pages": 472,
+    "tag": "Programming",
+    "dateAdded": "2025-09-22",
+    "coverUrl": "https://covers.openlibrary.org/b/isbn/9781593279509-L.jpg",
+    "createdAt": "2025-09-22T11:50:00Z",
+    "updatedAt": "2025-09-22T11:50:00Z"
+  },
+  {
+    "id": "book_016",
+    "title": "The Alchemist",
+    "author": "Paulo Coelho",
+    "pages": 208,
+    "tag": "Fiction",
+    "dateAdded": "2025-10-11",
+    "coverUrl": "https://covers.openlibrary.org/b/isbn/9780062315007-L.jpg",
+    "createdAt": "2025-10-11T13:40:00Z",
+    "updatedAt": "2025-10-11T13:40:00Z"
+  }
+]
