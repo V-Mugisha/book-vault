@@ -260,6 +260,9 @@ a:hover {
   margin: 0 auto;
   padding: var(--spacing-lg) var(--spacing-md);
   min-height: calc(100vh - 200px);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-lg);
 }
 
 /* Hero Section */
