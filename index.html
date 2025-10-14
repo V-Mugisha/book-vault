@@ -1,11 +1,78 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>Book Vault</title>
+    <link rel="stylesheet" href="./styles/base.css">
+    <link rel="stylesheet" href="./styles/layout.css">
+    <link rel="stylesheet" href="./styles/components.css">
+    <link rel="stylesheet" href="./styles/reset.css">
+    <link rel="stylesheet" href="./styles/responsive.css">
+    <link rel="stylesheet" href="./styles/variables.css">
+    <link rel="stylesheet" href="./styles/pages.css">
 </head>
+
 <body>
-    
+    <nav class="nav-container" role="navigation" aria-label="Main navigation">
+        <div class="nav-content">
+            <a href="/" class="nav-brand">
+                <i class="fa-solid fa-book-open-lines"></i>
+                Book Vault
+            </a>
+
+            <ul class="nav-links">
+                <li>
+                    <a href="/" class="nav-link"
+                        aria-current="page">
+                        About
+                    </a>
+                    <a href="/dashboard" class="nav-link"
+                        aria-current="page">
+                        Dashboard
+                    </a>
+                    <a href="/library" class="nav-link"
+                        aria-current="page">
+                        Library
+                    </a>
+                    <a href="/add-book" class="nav-link"
+                        aria-current="page">
+                        Add Book
+                    </a>
+                    <a href="/settings" class="nav-link"
+                        aria-current="page">
+                        Settings
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="main-container">
+        <div class="hero-section">
+            <div class="hero-content">
+                <h1 class="hero-title">Welcome to Book Vault</h1>
+                <p class="hero-description">
+                    Your personal library management system. Track books, monitor progress, and organize your reading
+                    life.
+                </p>
+                <div class="hero-cta">
+                    <a href="/library" class="btn btn-lg" styles="background-color: white; color: #8B5CF6;">
+                        <i class="fa-solid fa-book"></i>
+                        View Library
+                    </a>
+                    <a href="/form" class="btn btn-lg btn-secondary" styles="color: white; border-color: white;">
+                        <i class="fa-solid fa-sparkles"></i>
+                        Add Book
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
 </body>
+
 </html>
