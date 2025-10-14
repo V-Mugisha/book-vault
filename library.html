@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Book Vault</title>
+    <link rel="stylesheet" href="./styles/base.css">
+    <link rel="stylesheet" href="./styles/library.css">
+</head>
+
+<body>
+    <nav id="navigation"></nav>
+
+    <section class="main-container">
+        <header class="page-header">
+            <h1 class="page-title">My Library</h1>
+            <p class="page-description">Browse and manage your book collection (40+ books total)</p>
+        </header>
+
+        <!-- Search and Filters -->
+        <div class="search-container">
+            <input type="text" class="search-input" id="searchInput" placeholder="Search by title, author, or genre..."
+                aria-label="Search books" />
+            <div class="regex-checkbox-container">
+                <input type="checkbox" id="regexSearch" />
+                <label for="regexSearch">Use regex search</label>
+            </div>
+            <span class="form-error" id="searchError" role="alert" style="display: none;"></span>
+        </div>
+
+        <div class="filters">
+            <div class="filter-group">
+                <label for="statusFilter" class="form-label">Status</label>
+                <select id="statusFilter" class="form-select">
+                    <option value="all">All Status</option>
+                    <option value="read">Read</option>
+                    <option value="reading">Currently Reading</option>
+                    <option value="to-read">To Read</option>
+                </select>
+            </div>
+        
+            <div class="filter-group">
+                <label for="genreFilter" class="form-label">Genre</label>
+                <select id="genreFilter" class="form-select">
+                    <option value="all">All Genres</option>
+                </select>
+            </div>
+        
+            <div class="filter-group">
+                <label for="sortBy" class="form-label">Sort By</label>
+                <select id="sortBy" class="form-select">
+                    <option value="dateAdded">Date Added</option>
+                    <option value="title">Title</option>
+                    <option value="author">Author</option>
+                    <option value="year">Publication Year</option>
+                    <option value="rating">Rating</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- Results count -->
+        <div class="results-count" id="resultsCount" role="status" aria-live="polite">
+            Showing 0 of 0 books
+        </div>
+
+        <!-- Empty State -->
+        <div class="empty-state" id="emptyState" style="display: none;">
+            <div class="empty-state-icon">📚</div>
+            <h2 class="empty-state-title">No books found</h2>
+            <p class="empty-state-description" id="emptyStateDescription">
+                Your library is empty. Add your first book to get started!
+            </p>
+            <a href="form.html" class="btn btn-primary">Add Book</a>
+        </div>
+
+        <!-- Books Table (Desktop) -->
+        <div class="books-table-container" id="booksTableContainer">
+            <table class="books-table">
+                <thead>
+                    <tr>
+                        <th>Title</th>
+                        <th>Author</th>
+                        <th>Genre</th>
+                        <th>Year</th>
+                        <th>Status</th>
+                        <th>Rating</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="booksTableBody">
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Books Cards (Mobile) -->
+        <div class="books-cards-container" id="booksCardsContainer">
+            <div class="grid grid-3" id="booksCardsGrid">
+            </div>
+        </div>
+    </section>
+
+    <script src="scripts/componentsLoader.js"></script>
+    <script src="scripts/storage.js"></script>
+</body>
+
+</html>
