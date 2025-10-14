@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Book Vault</title>
+    <link rel="stylesheet" href="./styles/base.css">
+</head>
+
+<body>
+    <nav id="navigation"></nav>
+
+    <section class="main-container">
+        <header class="page-header">
+            <h1 class="page-title">Reading Dashboard</h1>
+            <p class="page-description">Track your reading progress and statistics</p>
+        </header>
+
+        <!-- Reading Goal Progress -->
+        <div class="progress-container">
+            <div class="progress-header">
+                <h2>2025 Reading Goal</h2>
+                <span style="font-size: 1.125rem; font-weight: 600; color: #8b5cf6;">
+                    10 / 34 books
+                </span>
+            </div>
+            <div class="progress-bar" role="progressbar" aria-valuenow={goalProgress} aria-valuemin={0}
+                aria-valuemax={100}>
+                <div class="progress-fill" style="width: 45%;">
+                    45%
+                </div>
+            </div>
+        </div>
+
+        <!-- Stats Grid -->
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-value">40</div>
+                <div class="stat-label">Total Books</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value">5</div>
+                <div class="stat-label">Books Read</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value">9</div>
+                <div class="stat-label">Currently Reading</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value">8</div>
+                <div class="stat-label">To Read</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value">9</div>
+                <div class="stat-label">Average Rating</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value">5</div>
+                <div class="stat-label">Genres</div>
+            </div>
+        </div>
+
+        <!-- Charts and Details -->
+        <div class="grid grid-2">
+            <!-- Top Genres -->
+            <div class="card">
+                <div class="card-header">
+                    <h2 class="card-title">Top Genres</h2>
+                </div>
+                <div class="card-body">
+                    <div style="display: flex; flex-direction: column; gap: 1.5rem;">
+                        <div>
+                            <div style="display: flex; justify-content: space-between; margin-bottom: 0.25rem;">
+                                <span style="font-weight: 500;">{genre}</span>
+                                <span style="color: #6b7280;">{count} books</span>
+                            </div>
+                            <div class="progress-bar" style="height: 8px;">
+                                <div class="progress-fill" style="width: 23%;"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- When we do not have genre data -->
+                    <p style="color: #6b7280;">No genre data available</p>
+                </div>
+            </div>
+
+            <!-- Recently Read -->
+            <div class="card">
+                <div class="card-header">
+                    <h2 class="card-title">Recently Read</h2>
+                </div>
+                <div class="card-body">
+                    <ul style="list-style: none; display: flex; flex-direction: column; gap: 1.5rem;">
+                        <li
+                            style="padding: 1.5rem; background: #ffffff; border-radius: 1rem; border-left: 3px solid #8b5cf6;">
+                            <div style="font-weight: 600; color: #1f2937;">A Song of Ice and Fire</div>
+                            <div style="font-size: 0.875rem; color: #6b7280;">by George R. Martin</div>
+                            <div style="font-size: 0.75rem; color: #6b7280; margin-top: 0.25rem;">
+                                Finished: Yesterday
+                                ⭐⭐⭐
+                            </div>
+                        </li>
+                        <li
+                            style="padding: 1.5rem; background: #ffffff; border-radius: 1rem; border-left: 3px solid #8b5cf6;">
+                            <div style="font-weight: 600; color: #1f2937;">A Song of Ice and Fire</div>
+                            <div style="font-size: 0.875rem; color: #6b7280;">by George R. Martin</div>
+                            <div style="font-size: 0.75rem; color: #6b7280; margin-top: 0.25rem;">
+                                Finished: Yesterday
+                                ⭐⭐⭐
+                            </div>
+                        </li>
+                        <li
+                            style="padding: 1.5rem; background: #ffffff; border-radius: 1rem; border-left: 3px solid #8b5cf6;">
+                            <div style="font-weight: 600; color: #1f2937;">A Song of Ice and Fire</div>
+                            <div style="font-size: 0.875rem; color: #6b7280;">by George R. Martin</div>
+                            <div style="font-size: 0.75rem; color: #6b7280; margin-top: 0.25rem;">
+                                Finished: Yesterday
+                                ⭐⭐⭐
+                            </div>
+                        </li>
+                    </ul>
+
+                    <!-- When we do not have recently read data -->
+                    <p style="color: #6b7280;">No books read yet</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Reading Insights -->
+        <!-- <div class="card">
+            <div class="card-header">
+                <h2 class="card-title">Reading Insights</h2>
+            </div>
+            <div class="card-body">
+                <div class="grid grid-3">
+                    <div>
+                        <h3 style="font-size: " 1rem" , marginBottom: "var(--spacing-xs)" }}>Most Read Genre</h3>
+                        <p style="font-size: " 1.5rem" , font-weight: 600, color: "var(--color-primary)" }}>
+                            {topGenres.length > 0 ? topGenres[0][0] : "N/A"}
+                        </p>
+                    </div>
+                    <div>
+                        <h3 style="font-size: " 1rem" , marginBottom: "var(--spacing-xs)" }}>Books This Year</h3>
+                        <p style="font-size: " 1.5rem" , font-weight: 600, color: "var(--color-primary)" }}>
+                            {booksReadThisYear}
+                        </p>
+                    </div>
+                    <div>
+                        <h3 style="font-size: " 1rem" , marginBottom: "var(--spacing-xs)" }}>Completion Rate</h3>
+                        <p style="font-size: " 1.5rem" , font-weight: 600, color: "var(--color-primary)" }}>
+                            {totalBooks > 0 ? Math.round((readBooks / totalBooks) * 100) : 0}%
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div> -->
+    </section>
+
+    <script src="scripts/componentsLoader.js"></script>
+</body>
+
+</html>
