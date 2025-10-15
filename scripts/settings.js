@@ -88,6 +88,10 @@ const showMessage = (type, text) => {
 const initPage = () => {
     settings = storage.getSettings();
 
+    // Calculate current reading progress
+    settings.readingGoal.current = storage.getBooks().filter(book => book.status === 'read').length;
+    storage.saveSettings(settings);
+
     // Set values
     currentYearSpan.textContent = settings.readingGoal.year;
     readingGoalInput.value = settings.readingGoal.target;
