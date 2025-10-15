@@ -361,15 +361,13 @@ const renderBooksCards = () => {
 // Update display
 const updateDisplay = () => {
   const emptyState = document.getElementById('emptyState');
-  const booksTableContainer = document.getElementById('booksTableContainer');
-  const booksCardsContainer = document.getElementById('booksCardsContainer');
   const resultsCount = document.getElementById('resultsCount');
   const emptyStateDescription = document.getElementById('emptyStateDescription');
+  
   resultsCount.textContent = `Showing ${filteredBooks.length} of ${books.length} books`;
+  
   if (filteredBooks.length === 0) {
     emptyState.style.display = 'block';
-    booksTableContainer.style.display = 'none';
-    booksCardsContainer.style.display = 'none';
     if (books.length === 0) {
       emptyStateDescription.textContent = 'Your library is empty. Add your first book to get started!';
     } else {
@@ -377,8 +375,6 @@ const updateDisplay = () => {
     }
   } else {
     emptyState.style.display = 'none';
-    booksTableContainer.style.display = 'block';
-    booksCardsContainer.style.display = 'block';
     renderBooksTable();
     renderBooksCards();
   }
@@ -507,8 +503,9 @@ document.getElementById('sortBy').addEventListener('change', (e) => {
 
 // Initialize
 books = storage.getBooks();
+filteredBooks = [...books];
 document.getElementById('totalBooksText').textContent = 
   `Browse and manage your book collection (${books.length} books total)`;
 
 updateGenreFilter();
-filterAndSortBooks();
+updateDisplay();
