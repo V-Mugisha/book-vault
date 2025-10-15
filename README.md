@@ -35,7 +35,7 @@ To run Book Vault locally on your machine:
 1. **Clone the Repository**:
    - If hosted on GitHub, clone it with:
      ```bash
-     git clone https://github.com/yourusername/book-vault.git
+     git clone https://github.com/V-Mugisha/book-vault.git
      ```
    - Otherwise, download the ZIP file and extract it.
 2. **Navigate to the Directory**:
@@ -44,11 +44,8 @@ To run Book Vault locally on your machine:
      cd book-vault
      ```
 3. **Open in Browser**:
-   - Double-click `index.html` to open it in your default browser, or use a local server (e.g., Python's `http.server`):
-     ```bash
-     python -m http.server 8000
-     ```
-   - Visit `http://localhost:8000` in your browser.
+   - Double-click `index.html` to open it in your default browser, or use a live server extension
+   - Visit `http://localhost:5500` in your browser.
 4. **No Dependencies**: The app requires no external dependencies beyond a modern browser.
 
 ## Contributing
@@ -59,7 +56,7 @@ We welcome contributions to enhance Book Vault! Here’s how you can get involve
 2. **Clone Your Fork**:
    - Clone it to your local machine:
      ```bash
-     git clone https://github.com/yourusername/book-vault.git
+     git clone https://github.com/V-Mugisha/book-vault.git
      ```
 3. **Create a Branch**:
    - Start a new branch for your feature or fix:
