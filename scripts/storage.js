@@ -1,5 +1,5 @@
 // Storage functionality
-const BOOKS_KEY = 'bookVault_books';
+const BOOKS_KEY = "bookVault_books";
 const seedBooks = [
   {
     id: "1",
@@ -10,10 +10,11 @@ const seedBooks = [
     genre: "Fantasy",
     status: "read",
     rating: 5,
-    notes: "Epic fantasy series starter. Complex characters and intricate plot.",
+    notes:
+      "Epic fantasy series starter. Complex characters and intricate plot.",
     dateAdded: "2024-01-15",
     dateRead: "2024-02-20",
-    pages: 694
+    pages: 694,
   },
   {
     id: "2",
@@ -27,7 +28,7 @@ const seedBooks = [
     notes: "Powerful story about justice and morality in the American South.",
     dateAdded: "2024-01-10",
     dateRead: "2024-01-25",
-    pages: 324
+    pages: 324,
   },
   {
     id: "3",
@@ -41,7 +42,7 @@ const seedBooks = [
     notes: "Chilling vision of totalitarian future. Still relevant today.",
     dateAdded: "2024-02-01",
     dateRead: "2024-02-15",
-    pages: 298
+    pages: 298,
   },
   {
     id: "4",
@@ -55,7 +56,7 @@ const seedBooks = [
     notes: "Classic romance with witty social commentary.",
     dateAdded: "2024-02-10",
     dateRead: "2024-03-05",
-    pages: 432
+    pages: 432,
   },
   {
     id: "5",
@@ -69,7 +70,7 @@ const seedBooks = [
     notes: "Beautiful prose depicting the Jazz Age and American Dream.",
     dateAdded: "2024-03-01",
     dateRead: "2024-03-20",
-    pages: 218
+    pages: 218,
   },
   {
     id: "6",
@@ -81,7 +82,7 @@ const seedBooks = [
     status: "reading",
     notes: "Currently on chapter 8. Loving the adventure!",
     dateAdded: "2024-03-15",
-    pages: 310
+    pages: 310,
   },
   {
     id: "7",
@@ -95,7 +96,7 @@ const seedBooks = [
     notes: "Magical introduction to the wizarding world.",
     dateAdded: "2024-01-05",
     dateRead: "2024-01-18",
-    pages: 309
+    pages: 309,
   },
   {
     id: "8",
@@ -109,7 +110,7 @@ const seedBooks = [
     notes: "Interesting perspective on teenage angst and alienation.",
     dateAdded: "2024-02-20",
     dateRead: "2024-03-10",
-    pages: 277
+    pages: 277,
   },
   {
     id: "9",
@@ -121,7 +122,7 @@ const seedBooks = [
     status: "to-read",
     notes: "Planning to read after finishing The Hobbit.",
     dateAdded: "2024-03-20",
-    pages: 1178
+    pages: 1178,
   },
   {
     id: "10",
@@ -132,7 +133,7 @@ const seedBooks = [
     genre: "Dystopian",
     status: "to-read",
     dateAdded: "2024-03-22",
-    pages: 288
+    pages: 288,
   },
   {
     id: "11",
@@ -146,7 +147,7 @@ const seedBooks = [
     notes: "Wonderful allegorical fantasy series.",
     dateAdded: "2024-01-20",
     dateRead: "2024-02-28",
-    pages: 767
+    pages: 767,
   },
   {
     id: "12",
@@ -158,7 +159,7 @@ const seedBooks = [
     status: "reading",
     notes: "Complex world-building. Taking my time with this one.",
     dateAdded: "2024-03-10",
-    pages: 658
+    pages: 658,
   },
   {
     id: "13",
@@ -172,7 +173,7 @@ const seedBooks = [
     notes: "Hilarious and clever sci-fi comedy. Don't forget your towel!",
     dateAdded: "2024-02-05",
     dateRead: "2024-02-18",
-    pages: 224
+    pages: 224,
   },
   {
     id: "14",
@@ -183,7 +184,7 @@ const seedBooks = [
     genre: "Dystopian",
     status: "to-read",
     dateAdded: "2024-03-25",
-    pages: 194
+    pages: 194,
   },
   {
     id: "15",
@@ -197,7 +198,7 @@ const seedBooks = [
     notes: "Inspiring tale about following your dreams.",
     dateAdded: "2024-01-30",
     dateRead: "2024-02-12",
-    pages: 208
+    pages: 208,
   },
   {
     id: "16",
@@ -208,10 +209,9 @@ const seedBooks = [
     genre: "Historical Fiction",
     status: "to-read",
     dateAdded: "2024-03-28",
-    pages: 552
-  }
+    pages: 552,
+  },
 ];
-
 
 const storage = {
   getBooks: () => {
@@ -227,11 +227,11 @@ const storage = {
   },
   deleteBook: (id) => {
     const books = storage.getBooks();
-    const filtered = books.filter(b => b.id !== id);
+    const filtered = books.filter((b) => b.id !== id);
     if (filtered.length === books.length) return false;
     storage.saveBooks(filtered);
     return true;
-  }
+  },
 };
 
 // Validator
@@ -247,40 +247,44 @@ const isValidRegex = (pattern) => {
 // State
 let books = [];
 let filteredBooks = [];
-let searchQuery = '';
-let statusFilter = 'all';
-let genreFilter = 'all';
-let sortBy = 'dateAdded';
+let searchQuery = "";
+let statusFilter = "all";
+let genreFilter = "all";
+let sortBy = "dateAdded";
 let isRegexSearch = false;
-let sortDirection = { title: 'asc', pages: 'asc' };
+let sortDirection = { title: "asc", pages: "asc" };
 
 // Render star rating
 const renderStars = (rating) => {
-  if (!rating) return '—';
+  if (!rating) return "—";
   const stars = [];
   for (let i = 0; i < rating; i++) {
-    stars.push(`<svg class="star-icon" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>`);
+    stars.push(
+      `<svg class="star-icon" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>`
+    );
   }
-  return `<div class="star-rating">${stars.join('')}</div>`;
+  return `<div class="star-rating">${stars.join("")}</div>`;
 };
 
 // Get status label
 const getStatusLabel = (status) => {
-  if (status === 'to-read') return 'To Read';
-  if (status === 'reading') return 'Reading';
-  return 'Read';
+  if (status === "to-read") return "To Read";
+  if (status === "reading") return "Reading";
+  return "Read";
 };
 
 // Render books table
 const renderBooksTable = () => {
-  const tbody = document.getElementById('booksTableBody');
-  tbody.innerHTML = '';
-  filteredBooks.forEach(book => {
-    const tr = document.createElement('tr');
-    
-    const notesPreview = book.notes 
-      ? `<div class="table-notes">${book.notes.substring(0, 60)}${book.notes.length > 60 ? '...' : ''}</div>`
-      : '';
+  const tbody = document.getElementById("booksTableBody");
+  tbody.innerHTML = "";
+  filteredBooks.forEach((book) => {
+    const tr = document.createElement("tr");
+
+    const notesPreview = book.notes
+      ? `<div class="table-notes">${book.notes.substring(0, 60)}${
+          book.notes.length > 60 ? "..." : ""
+        }</div>`
+      : "";
     tr.innerHTML = `
       <td>
         <strong>${book.title}</strong>
@@ -298,7 +302,9 @@ const renderBooksTable = () => {
       <td>${renderStars(book.rating)}</td>
       <td>
         <div class="table-actions">
-          <a href="form.html?id=${book.id}" class="btn-icon" aria-label="Edit ${book.title}">
+          <a href="form.html?id=${book.id}" class="btn-icon" aria-label="Edit ${
+      book.title
+    }">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
               <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/>
               <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/>
@@ -320,25 +326,29 @@ const renderBooksTable = () => {
     tbody.appendChild(tr);
   });
 
-  document.getElementById('sortTitleIndicator').textContent = sortDirection.title === 'asc' ? '↑' : '↓';
-  document.getElementById('sortPagesIndicator').textContent = sortDirection.pages === 'asc' ? '↑' : '↓';
+  document.getElementById("sortTitleIndicator").textContent =
+    sortDirection.title === "asc" ? "↑" : "↓";
+  document.getElementById("sortPagesIndicator").textContent =
+    sortDirection.pages === "asc" ? "↑" : "↓";
 };
 
 // Render books cards
 const renderBooksCards = () => {
-  const grid = document.getElementById('booksCardsGrid');
-  grid.innerHTML = '';
-  filteredBooks.forEach(book => {
-    const article = document.createElement('article');
-    article.className = 'book-card';
-    const notesPreview = book.notes 
+  const grid = document.getElementById("booksCardsGrid");
+  grid.innerHTML = "";
+  filteredBooks.forEach((book) => {
+    const article = document.createElement("article");
+    article.className = "book-card";
+    const notesPreview = book.notes
       ? `<p style="font-size: 0.875rem; color: var(--color-text-light); margin-bottom: var(--spacing-sm);">
-          ${book.notes.substring(0, 100)}${book.notes.length > 100 ? '...' : ''}
+          ${book.notes.substring(0, 100)}${book.notes.length > 100 ? "..." : ""}
         </p>`
-      : '';
-    const ratingDisplay = book.rating 
-      ? `<span style="display: flex; align-items: center; gap: 4px;">Rating: ${renderStars(book.rating)}</span>`
-      : '';
+      : "";
+    const ratingDisplay = book.rating
+      ? `<span style="display: flex; align-items: center; gap: 4px;">Rating: ${renderStars(
+          book.rating
+        )}</span>`
+      : "";
     article.innerHTML = `
       <div class="book-cover" style="background: linear-gradient(135deg, var(--color-primary), var(--color-accent));">
         📖
@@ -380,27 +390,33 @@ const renderBooksCards = () => {
     grid.appendChild(article);
   });
 
-  document.getElementById('sortTitleIndicator').textContent = sortDirection.title === 'asc' ? '↑' : '↓';
-  document.getElementById('sortPagesIndicator').textContent = sortDirection.pages === 'asc' ? '↑' : '↓';
+  document.getElementById("sortTitleIndicator").textContent =
+    sortDirection.title === "asc" ? "↑" : "↓";
+  document.getElementById("sortPagesIndicator").textContent =
+    sortDirection.pages === "asc" ? "↑" : "↓";
 };
 
 // Update display
 const updateDisplay = () => {
-  const emptyState = document.getElementById('emptyState');
-  const resultsCount = document.getElementById('resultsCount');
-  const emptyStateDescription = document.getElementById('emptyStateDescription');
-  
+  const emptyState = document.getElementById("emptyState");
+  const resultsCount = document.getElementById("resultsCount");
+  const emptyStateDescription = document.getElementById(
+    "emptyStateDescription"
+  );
+
   resultsCount.textContent = `Showing ${filteredBooks.length} of ${books.length} books`;
-  
+
   if (filteredBooks.length === 0) {
-    emptyState.style.display = 'block';
+    emptyState.style.display = "block";
     if (books.length === 0) {
-      emptyStateDescription.textContent = 'Your library is empty. Add your first book to get started!';
+      emptyStateDescription.textContent =
+        "Your library is empty. Add your first book to get started!";
     } else {
-      emptyStateDescription.textContent = 'Try adjusting your filters or search query.';
+      emptyStateDescription.textContent =
+        "Try adjusting your filters or search query.";
     }
   } else {
-    emptyState.style.display = 'none';
+    emptyState.style.display = "none";
     renderBooksTable();
     renderBooksCards();
   }
@@ -409,69 +425,75 @@ const updateDisplay = () => {
 // Filter and sort books
 const filterAndSortBooks = () => {
   let result = [...books];
-  const searchErrorEl = document.getElementById('searchError');
-  
+  const searchErrorEl = document.getElementById("searchError");
+
   // Status filter
-  if (statusFilter !== 'all') {
-    result = result.filter(book => book.status === statusFilter);
+  if (statusFilter !== "all") {
+    result = result.filter((book) => book.status === statusFilter);
   }
-  
+
   // Genre filter
-  if (genreFilter !== 'all') {
-    result = result.filter(book => book.genre === genreFilter);
+  if (genreFilter !== "all") {
+    result = result.filter((book) => book.genre === genreFilter);
   }
-  
+
   // Search filter
   if (searchQuery) {
     if (isRegexSearch) {
       if (isValidRegex(searchQuery)) {
         try {
-          const regex = new RegExp(searchQuery, 'i');
-          result = result.filter(book => 
-            regex.test(book.title) || 
-            regex.test(book.author) || 
-            regex.test(book.genre)
+          const regex = new RegExp(searchQuery, "i");
+          result = result.filter(
+            (book) =>
+              regex.test(book.title) ||
+              regex.test(book.author) ||
+              regex.test(book.genre)
           );
-          searchErrorEl.style.display = 'none';
+          searchErrorEl.style.display = "none";
         } catch {
-          searchErrorEl.textContent = 'Invalid regex pattern';
-          searchErrorEl.style.display = 'block';
+          searchErrorEl.textContent = "Invalid regex pattern";
+          searchErrorEl.style.display = "block";
         }
       } else {
-        searchErrorEl.textContent = 'Invalid regex pattern';
-        searchErrorEl.style.display = 'block';
+        searchErrorEl.textContent = "Invalid regex pattern";
+        searchErrorEl.style.display = "block";
       }
     } else {
       const query = searchQuery.toLowerCase();
-      result = result.filter(book =>
-        book.title.toLowerCase().includes(query) ||
-        book.author.toLowerCase().includes(query) ||
-        book.genre.toLowerCase().includes(query)
+      result = result.filter(
+        (book) =>
+          book.title.toLowerCase().includes(query) ||
+          book.author.toLowerCase().includes(query) ||
+          book.genre.toLowerCase().includes(query)
       );
-      searchErrorEl.style.display = 'none';
+      searchErrorEl.style.display = "none";
     }
   } else {
-    searchErrorEl.style.display = 'none';
+    searchErrorEl.style.display = "none";
   }
 
   // Sort
   result.sort((a, b) => {
     switch (sortBy) {
-      case 'title':
+      case "title":
         return a.title.localeCompare(b.title);
-      case 'pages':
+      case "pages":
         const pagesA = a.pages || 0;
         const pagesB = b.pages || 0;
-        return sortDirection.pages === 'asc' ? pagesA - pagesB : pagesB - pagesA;
-      case 'author':
+        return sortDirection.pages === "asc"
+          ? pagesA - pagesB
+          : pagesB - pagesA;
+      case "author":
         return a.author.localeCompare(b.author);
-      case 'year':
+      case "year":
         return b.publicationYear - a.publicationYear;
-      case 'rating':
+      case "rating":
         return (b.rating || 0) - (a.rating || 0);
-      case 'dateAdded':
+      case "dateAdded":
       default:
-        return new Date(b.dateAdded).getTime() - new Date(a.dateAdded).getTime();
+        return (
+          new Date(b.dateAdded).getTime() - new Date(a.dateAdded).getTime()
+        );
     }
   });
   filteredBooks = result;
@@ -480,12 +502,12 @@ const filterAndSortBooks = () => {
 
 // Update genre filter options
 const updateGenreFilter = () => {
-  const genreFilterEl = document.getElementById('genreFilter');
-  const genres = Array.from(new Set(books.map(b => b.genre))).sort();
-  
+  const genreFilterEl = document.getElementById("genreFilter");
+  const genres = Array.from(new Set(books.map((b) => b.genre))).sort();
+
   genreFilterEl.innerHTML = '<option value="all">All Genres</option>';
-  genres.forEach(genre => {
-    const option = document.createElement('option');
+  genres.forEach((genre) => {
+    const option = document.createElement("option");
     option.value = genre;
     option.textContent = genre;
     genreFilterEl.appendChild(option);
@@ -494,53 +516,57 @@ const updateGenreFilter = () => {
 
 // Handle delete
 window.handleDelete = (id) => {
-  if (confirm('Are you sure you want to delete this book?')) {
+  if (confirm("Are you sure you want to delete this book?")) {
     storage.deleteBook(id);
     books = storage.getBooks();
     updateGenreFilter();
     filterAndSortBooks();
-    document.getElementById('totalBooksText').textContent = 
-      `Browse and manage your book collection (${books.length} books total)`;
+    document.getElementById(
+      "totalBooksText"
+    ).textContent = `Browse and manage your book collection (${books.length} books total)`;
   }
 };
 
 // Event listeners
-document.getElementById('searchInput').addEventListener('input', (e) => {
+document.getElementById("searchInput").addEventListener("input", (e) => {
   searchQuery = e.target.value;
   filterAndSortBooks();
 });
 
-document.getElementById('regexSearch').addEventListener('change', (e) => {
+document.getElementById("regexSearch").addEventListener("change", (e) => {
   isRegexSearch = e.target.checked;
-  const searchInput = document.getElementById('searchInput');
-  searchInput.placeholder = isRegexSearch 
-    ? 'Enter regex pattern (e.g., ^A.*Game)' 
-    : 'Search by title, author, or genre...';
+  const searchInput = document.getElementById("searchInput");
+  searchInput.placeholder = isRegexSearch
+    ? "Enter regex pattern (e.g., ^A.*Game)"
+    : "Search by title, author, or genre...";
   filterAndSortBooks();
 });
 
-document.getElementById('statusFilter').addEventListener('change', (e) => {
+document.getElementById("statusFilter").addEventListener("change", (e) => {
   statusFilter = e.target.value;
   filterAndSortBooks();
 });
 
-document.getElementById('genreFilter').addEventListener('change', (e) => {
+document.getElementById("genreFilter").addEventListener("change", (e) => {
   genreFilter = e.target.value;
   filterAndSortBooks();
 });
 
-document.getElementById('sortBy').addEventListener('change', (e) => {
+document.getElementById("sortBy").addEventListener("change", (e) => {
   sortBy = e.target.value;
-  if (sortBy === 'title') sortDirection.title = sortDirection.title === 'asc' ? 'desc' : 'asc';
-  if (sortBy === 'pages') sortDirection.pages = sortDirection.pages === 'asc' ? 'desc' : 'asc';
+  if (sortBy === "title")
+    sortDirection.title = sortDirection.title === "asc" ? "desc" : "asc";
+  if (sortBy === "pages")
+    sortDirection.pages = sortDirection.pages === "asc" ? "desc" : "asc";
   filterAndSortBooks();
 });
 
 // Initialize
 books = storage.getBooks();
 filteredBooks = [...books];
-document.getElementById('totalBooksText').textContent = 
-  `Browse and manage your book collection (${books.length} books total)`;
+document.getElementById(
+  "totalBooksText"
+).textContent = `Browse and manage your book collection (${books.length} books total)`;
 
 updateGenreFilter();
 updateDisplay();

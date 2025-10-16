@@ -1,122 +1,212 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Book Form - Book Vault</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
-        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="./styles/base.css">
-    <link rel="stylesheet" href="./styles/forms.css">
-</head>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+      integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="./styles/base.css" />
+    <link rel="stylesheet" href="./styles/forms.css" />
+  </head>
 
-<body>
+  <body>
     <nav id="navigation"></nav>
 
     <div class="main-container">
-        <header class="page-header">
-            <h1 class="page-title" id="pageTitle">Add New Book</h1>
-            <p class="page-description" id="pageDescription">Add a new book to your library</p>
-        </header>
+      <header class="page-header">
+        <h1 class="page-title" id="pageTitle">Add New Book</h1>
+        <p class="page-description" id="pageDescription">
+          Add a new book to your library
+        </p>
+      </header>
 
-        <div id="successMessage" class="alert alert-success" role="alert" style="display: none;"></div>
-        <div id="errorMessage" class="alert alert-error" role="alert" style="display: none;"></div>
+      <div
+        id="successMessage"
+        class="alert alert-success"
+        role="alert"
+        style="display: none"
+      ></div>
+      <div
+        id="errorMessage"
+        class="alert alert-error"
+        role="alert"
+        style="display: none"
+      ></div>
 
-        <form id="bookForm" novalidate>
-            <div class="card">
-                <div class="card-header">
-                    <h2 class="card-title">Book Information</h2>
-                </div>
-                <div class="card-body">
-                    <div class="form-group">
-                        <label for="title" class="form-label required">Title</label>
-                        <input type="text" id="title" class="form-input" aria-required="true"
-                            aria-describedby="title-error" />
-                        <span id="title-error" class="form-error" role="alert" style="display: none;"></span>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="author" class="form-label required">Author</label>
-                        <input type="text" id="author" class="form-input" aria-required="true"
-                            aria-describedby="author-error" />
-                        <span id="author-error" class="form-error" role="alert" style="display: none;"></span>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="isbn" class="form-label required">ISBN</label>
-                        <input type="text" id="isbn" class="form-input" placeholder="978-0-123456-78-9"
-                            aria-required="true" aria-describedby="isbn-help isbn-error" />
-                        <span id="isbn-help" class="form-help">
-                            Enter ISBN-10 (10 digits) or ISBN-13 (13 digits starting with 978 or 979)
-                        </span>
-                        <span id="isbn-error" class="form-error" role="alert" style="display: none;"></span>
-                    </div>
-
-                    <div class="grid grid-2">
-                        <div class="form-group">
-                            <label for="publicationYear" class="form-label required">Publication Year</label>
-                            <input type="number" id="publicationYear" class="form-input" min="1000" max="2100"
-                                aria-required="true" aria-describedby="year-error" />
-                            <span id="year-error" class="form-error" role="alert" style="display: none;"></span>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="genre" class="form-label required">Genre</label>
-                            <input type="text" id="genre" class="form-input"
-                                placeholder="e.g., Fantasy, Science Fiction" aria-required="true"
-                                aria-describedby="genre-error" />
-                            <span id="genre-error" class="form-error" role="alert" style="display: none;"></span>
-                        </div>
-                    </div>
-
-                    <div class="grid grid-2" id="statusRatingGrid">
-                        <div class="form-group">
-                            <label for="status" class="form-label required">Reading Status</label>
-                            <select id="status" class="form-select" aria-required="true">
-                                <option value="to-read">To Read</option>
-                                <option value="reading">Currently Reading</option>
-                                <option value="read">Read</option>
-                            </select>
-                        </div>
-
-                        <div class="form-group" id="ratingGroup" style="display: none;">
-                            <label for="rating" class="form-label">Rating</label>
-                            <select id="rating" class="form-select">
-                                <option value="">No rating</option>
-                                <option value="1">⭐ 1 star</option>
-                                <option value="2">⭐⭐ 2 stars</option>
-                                <option value="3">⭐⭐⭐ 3 stars</option>
-                                <option value="4">⭐⭐⭐⭐ 4 stars</option>
-                                <option value="5">⭐⭐⭐⭐⭐ 5 stars</option>
-                            </select>
-                        </div>
-                    </div>
-
-                    <div class="form-group" id="dateReadGroup" style="display: none;">
-                        <label for="dateRead" class="form-label">Date Finished</label>
-                        <input type="date" id="dateRead" class="form-input" aria-describedby="date-error" />
-                        <span id="date-error" class="form-error" role="alert" style="display: none;"></span>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="notes" class="form-label">Notes</label>
-                        <textarea id="notes" class="form-textarea"
-                            placeholder="Your thoughts, quotes, or any notes about this book..." rows="5"></textarea>
-                    </div>
-                </div>
+      <form id="bookForm" novalidate>
+        <div class="card">
+          <div class="card-header">
+            <h2 class="card-title">Book Information</h2>
+          </div>
+          <div class="card-body">
+            <div class="form-group">
+              <label for="title" class="form-label required">Title</label>
+              <input
+                type="text"
+                id="title"
+                class="form-input"
+                aria-required="true"
+                aria-describedby="title-error"
+              />
+              <span
+                id="title-error"
+                class="form-error"
+                role="alert"
+                style="display: none"
+              ></span>
             </div>
 
-            <div class="form-actions">
-                <button type="submit" class="btn btn-primary" id="submitBtn">Add Book</button>
-                <button type="button" class="btn btn-secondary" id="cancelBtn">Cancel</button>
+            <div class="form-group">
+              <label for="author" class="form-label required">Author</label>
+              <input
+                type="text"
+                id="author"
+                class="form-input"
+                aria-required="true"
+                aria-describedby="author-error"
+              />
+              <span
+                id="author-error"
+                class="form-error"
+                role="alert"
+                style="display: none"
+              ></span>
             </div>
-        </form>
+
+            <div class="form-group">
+              <label for="isbn" class="form-label required">ISBN</label>
+              <input
+                type="text"
+                id="isbn"
+                class="form-input"
+                placeholder="978-0-123456-78-9"
+                aria-required="true"
+                aria-describedby="isbn-help isbn-error"
+              />
+              <span id="isbn-help" class="form-help">
+                Enter ISBN-10 (10 digits) or ISBN-13 (13 digits starting with
+                978 or 979)
+              </span>
+              <span
+                id="isbn-error"
+                class="form-error"
+                role="alert"
+                style="display: none"
+              ></span>
+            </div>
+
+            <div class="grid grid-2">
+              <div class="form-group">
+                <label for="publicationYear" class="form-label required"
+                  >Publication Year</label
+                >
+                <input
+                  type="number"
+                  id="publicationYear"
+                  class="form-input"
+                  min="1000"
+                  max="2100"
+                  aria-required="true"
+                  aria-describedby="year-error"
+                />
+                <span
+                  id="year-error"
+                  class="form-error"
+                  role="alert"
+                  style="display: none"
+                ></span>
+              </div>
+
+              <div class="form-group">
+                <label for="genre" class="form-label required">Genre</label>
+                <input
+                  type="text"
+                  id="genre"
+                  class="form-input"
+                  placeholder="e.g., Fantasy, Science Fiction"
+                  aria-required="true"
+                  aria-describedby="genre-error"
+                />
+                <span
+                  id="genre-error"
+                  class="form-error"
+                  role="alert"
+                  style="display: none"
+                ></span>
+              </div>
+            </div>
+
+            <div class="grid grid-2" id="statusRatingGrid">
+              <div class="form-group">
+                <label for="status" class="form-label required"
+                  >Reading Status</label
+                >
+                <select id="status" class="form-select" aria-required="true">
+                  <option value="to-read">To Read</option>
+                  <option value="reading">Currently Reading</option>
+                  <option value="read">Read</option>
+                </select>
+              </div>
+
+              <div class="form-group" id="ratingGroup" style="display: none">
+                <label for="rating" class="form-label">Rating</label>
+                <select id="rating" class="form-select">
+                  <option value="">No rating</option>
+                  <option value="1">⭐ 1 star</option>
+                  <option value="2">⭐⭐ 2 stars</option>
+                  <option value="3">⭐⭐⭐ 3 stars</option>
+                  <option value="4">⭐⭐⭐⭐ 4 stars</option>
+                  <option value="5">⭐⭐⭐⭐⭐ 5 stars</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-group" id="dateReadGroup" style="display: none">
+              <label for="dateRead" class="form-label">Date Finished</label>
+              <input
+                type="date"
+                id="dateRead"
+                class="form-input"
+                aria-describedby="date-error"
+              />
+              <span
+                id="date-error"
+                class="form-error"
+                role="alert"
+                style="display: none"
+              ></span>
+            </div>
+
+            <div class="form-group">
+              <label for="notes" class="form-label">Notes</label>
+              <textarea
+                id="notes"
+                class="form-textarea"
+                placeholder="Your thoughts, quotes, or any notes about this book..."
+                rows="5"
+              ></textarea>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-actions">
+          <button type="submit" class="btn btn-primary" id="submitBtn">
+            Add Book
+          </button>
+          <button type="button" class="btn btn-secondary" id="cancelBtn">
+            Cancel
+          </button>
+        </div>
+      </form>
     </div>
 
     <script src="./scripts/componentsLoader.js"></script>
     <script src="./scripts/forms.js"></script>
-</body>
-
+  </body>
 </html>

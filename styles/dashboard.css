@@ -314,8 +314,8 @@ body {
 }
 
 #trendChart canvas {
-    width: 100% !important;
-    height: auto !important;
+  width: 100% !important;
+  height: auto !important;
 }
 
 @media (max-width: 768px) {

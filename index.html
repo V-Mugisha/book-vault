@@ -1,147 +1,184 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
-        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+      integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
     <title>Book Vault</title>
-    <link rel="stylesheet" href="./styles/base.css">
-    <link rel="stylesheet" href="./styles/about.css">
-</head>
+    <link rel="stylesheet" href="./styles/base.css" />
+    <link rel="stylesheet" href="./styles/about.css" />
+  </head>
 
-<body>
+  <body>
     <nav id="navigation"></nav>
 
     <div class="main-container">
-        <!-- Hero Section -->
-        <div class="hero-section">
-            <div class="hero-content">
-                <h1 class="hero-title">Welcome to Book Vault</h1>
-                <p class="hero-description">
-                    Your personal library management system. Track books, monitor progress, and organize your reading life.
-                </p>
-                <div class="hero-cta">
-                    <a href="library.html" class="btn btn-lg" style="background-color: white; color: #8B5CF6;">
-                        <i class="fa-solid fa-book-open"></i>
-                        View Library
-                    </a>
-                    <a href="form.html" class="btn btn-lg btn-secondary"
-                        style="color: white; border-color: white; background-color: rgba(255, 255, 255, 0.1);">
-                        <i class="fa-solid fa-sparkles"></i>
-                        Add Book
-                    </a>
-                </div>
-            </div>
+      <!-- Hero Section -->
+      <div class="hero-section">
+        <div class="hero-content">
+          <h1 class="hero-title">Welcome to Book Vault</h1>
+          <p class="hero-description">
+            Your personal library management system. Track books, monitor
+            progress, and organize your reading life.
+          </p>
+          <div class="hero-cta">
+            <a
+              href="library.html"
+              class="btn btn-lg"
+              style="background-color: white; color: #8b5cf6"
+            >
+              <i class="fa-solid fa-book-open"></i>
+              View Library
+            </a>
+            <a
+              href="form.html"
+              class="btn btn-lg btn-secondary"
+              style="
+                color: white;
+                border-color: white;
+                background-color: rgba(255, 255, 255, 0.1);
+              "
+            >
+              <i class="fa-solid fa-sparkles"></i>
+              Add Book
+            </a>
+          </div>
         </div>
-    
-        <!-- Features Grid -->
-        <div class="feature-grid">
-            <div class="card">
-                <div class="card-icon purple">
-                    <i class="fa-solid fa-book-open"></i>
-                </div>
-                <div class="card-header">
-                    <h3 class="card-title">Library Management</h3>
-                </div>
-                <div class="card-body">
-                    <p>Organize your entire book collection in one place. Add, edit, and manage books with ease.</p>
-                </div>
-            </div>
-    
-            <div class="card">
-                <div class="card-icon blue">
-                    <i class="fa-solid fa-magnifying-glass"></i>
-                </div>
-                <div class="card-header">
-                    <h3 class="card-title">Advanced Search</h3>
-                </div>
-                <div class="card-body">
-                    <p>Find books instantly with powerful regex search. Filter by status, author, genre, and more.</p>
-                </div>
-            </div>
-    
-            <div class="card">
-                <div class="card-icon yellow">
-                    <i class="fa-solid fa-chart-column"></i>
-                </div>
-                <div class="card-header">
-                    <h3 class="card-title">Reading Statistics</h3>
-                </div>
-                <div class="card-body">
-                    <p>Track your reading progress with beautiful charts and insights. Set and achieve reading goals.</p>
-                </div>
-            </div>
-    
-            <div class="card">
-                <div class="card-icon green">
-                    <i class="fa-solid fa-download"></i>
-                </div>
-                <div class="card-header">
-                    <h3 class="card-title">Import & Export</h3>
-                </div>
-                <div class="card-body">
-                    <p>Backup your library data or import existing collections. Support for JSON and CSV formats.</p>
-                </div>
-            </div>
-    
-            <div class="card">
-                <div class="card-icon purple">
-                    <i class="fa-solid fa-bolt"></i>
-                </div>
-                <div class="card-header">
-                    <h3 class="card-title">Fast & Responsive</h3>
-                </div>
-                <div class="card-body">
-                    <p>Lightning-fast performance with instant updates. Works seamlessly on all devices.</p>
-                </div>
-            </div>
-    
-            <div class="card">
-                <div class="card-icon blue">
-                    <i class="fa-solid fa-sparkles"></i>
-                </div>
-                <div class="card-header">
-                    <h3 class="card-title">Fully Accessible</h3>
-                </div>
-                <div class="card-body">
-                    <p>Built with accessibility in mind. Keyboard navigation and screen reader support included.</p>
-                </div>
-            </div>
+      </div>
+
+      <!-- Features Grid -->
+      <div class="feature-grid">
+        <div class="card">
+          <div class="card-icon purple">
+            <i class="fa-solid fa-book-open"></i>
+          </div>
+          <div class="card-header">
+            <h3 class="card-title">Library Management</h3>
+          </div>
+          <div class="card-body">
+            <p>
+              Organize your entire book collection in one place. Add, edit, and
+              manage books with ease.
+            </p>
+          </div>
         </div>
-    
-        <!-- Getting Started Section -->
-        <div class="card cta-card">
-            <div class="card-header">
-                <h2 class="card-title">Ready to Get Started?</h2>
-            </div>
-            <div class="card-body">
-                <p style="margin-bottom: var(--spacing-md); color: var(--color-text-light);">
-                    Your library comes pre-loaded with sample books to help you explore all the features. Start by browsing
-                    your
-                    collection or add your first book!
-                </p>
-                <div class="cta-buttons">
-                    <a href="library.html" class="btn btn-primary">
-                        <i class="fa-solid fa-book-open"></i>
-                        Browse Library
-                    </a>
-                    <a href="dashboard.html" class="btn btn-secondary">
-                        <i class="fa-solid fa-chart-column"></i>
-                        View Dashboard
-                    </a>
-                    <a href="form.html" class="btn btn-secondary">
-                        <i class="fa-solid fa-sparkles"></i>
-                        Add Your First Book
-                    </a>
-                </div>
-            </div>
+
+        <div class="card">
+          <div class="card-icon blue">
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </div>
+          <div class="card-header">
+            <h3 class="card-title">Advanced Search</h3>
+          </div>
+          <div class="card-body">
+            <p>
+              Find books instantly with powerful regex search. Filter by status,
+              author, genre, and more.
+            </p>
+          </div>
         </div>
+
+        <div class="card">
+          <div class="card-icon yellow">
+            <i class="fa-solid fa-chart-column"></i>
+          </div>
+          <div class="card-header">
+            <h3 class="card-title">Reading Statistics</h3>
+          </div>
+          <div class="card-body">
+            <p>
+              Track your reading progress with beautiful charts and insights.
+              Set and achieve reading goals.
+            </p>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-icon green">
+            <i class="fa-solid fa-download"></i>
+          </div>
+          <div class="card-header">
+            <h3 class="card-title">Import & Export</h3>
+          </div>
+          <div class="card-body">
+            <p>
+              Backup your library data or import existing collections. Support
+              for JSON and CSV formats.
+            </p>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-icon purple">
+            <i class="fa-solid fa-bolt"></i>
+          </div>
+          <div class="card-header">
+            <h3 class="card-title">Fast & Responsive</h3>
+          </div>
+          <div class="card-body">
+            <p>
+              Lightning-fast performance with instant updates. Works seamlessly
+              on all devices.
+            </p>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-icon blue">
+            <i class="fa-solid fa-sparkles"></i>
+          </div>
+          <div class="card-header">
+            <h3 class="card-title">Fully Accessible</h3>
+          </div>
+          <div class="card-body">
+            <p>
+              Built with accessibility in mind. Keyboard navigation and screen
+              reader support included.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Getting Started Section -->
+      <div class="card cta-card">
+        <div class="card-header">
+          <h2 class="card-title">Ready to Get Started?</h2>
+        </div>
+        <div class="card-body">
+          <p
+            style="
+              margin-bottom: var(--spacing-md);
+              color: var(--color-text-light);
+            "
+          >
+            Your library comes pre-loaded with sample books to help you explore
+            all the features. Start by browsing your collection or add your
+            first book!
+          </p>
+          <div class="cta-buttons">
+            <a href="library.html" class="btn btn-primary">
+              <i class="fa-solid fa-book-open"></i>
+              Browse Library
+            </a>
+            <a href="dashboard.html" class="btn btn-secondary">
+              <i class="fa-solid fa-chart-column"></i>
+              View Dashboard
+            </a>
+            <a href="form.html" class="btn btn-secondary">
+              <i class="fa-solid fa-sparkles"></i>
+              Add Your First Book
+            </a>
+          </div>
+        </div>
+      </div>
     </div>
 
     <script src="scripts/componentsLoader.js"></script>
-</body>
-
+  </body>
 </html>

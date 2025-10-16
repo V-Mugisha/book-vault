@@ -1,129 +1,147 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
-        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+      integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
     <title>Book Vault</title>
-    <link rel="stylesheet" href="./styles/base.css">
-    <link rel="stylesheet" href="./styles/dashboard.css">
+    <link rel="stylesheet" href="./styles/base.css" />
+    <link rel="stylesheet" href="./styles/dashboard.css" />
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-</head>
+  </head>
 
-<body>
+  <body>
     <nav id="navigation"></nav>
 
-    <div id="loadingSpinner" class="spinner" style="display: block;"></div>
+    <div id="loadingSpinner" class="spinner" style="display: block"></div>
 
-    <div id="mainContent" class="main-container" style="display: none;">
-        <header class="page-header">
-            <h1 class="page-title">Reading Dashboard</h1>
-            <p class="page-description">Track your reading progress and statistics</p>
-        </header>
+    <div id="mainContent" class="main-container" style="display: none">
+      <header class="page-header">
+        <h1 class="page-title">Reading Dashboard</h1>
+        <p class="page-description">
+          Track your reading progress and statistics
+        </p>
+      </header>
 
-        <!-- Reading Goal Progress -->
-        <div class="progress-container">
-            <div class="progress-header">
-                <h2 id="goalYearTitle">2024 Reading Goal</h2>
-                <span id="goalText">0 / 24 books</span>
-            </div>
-            <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
-                <div class="progress-fill" id="progressFill" style="width: 0%;">0%</div>
-            </div>
-            <div id="goalCompleteAlert" class="alert alert-success" style="display: none;">
-                🎉 <span id="goalCompleteText"></span>
-            </div>
+      <!-- Reading Goal Progress -->
+      <div class="progress-container">
+        <div class="progress-header">
+          <h2 id="goalYearTitle">2024 Reading Goal</h2>
+          <span id="goalText">0 / 24 books</span>
         </div>
-
-        <!-- Stats Grid -->
-        <div class="stats-grid">
-            <div class="stat-card">
-                <div class="stat-value" id="totalBooks">0</div>
-                <div class="stat-label">Total Books</div>
-            </div>
-            <div class="stat-card">
-                <div class="stat-value" id="readBooks">0</div>
-                <div class="stat-label">Books Read</div>
-            </div>
-            <div class="stat-card">
-                <div class="stat-value" id="readingBooks">0</div>
-                <div class="stat-label">Currently Reading</div>
-            </div>
-            <div class="stat-card">
-                <div class="stat-value" id="toReadBooks">0</div>
-                <div class="stat-label">To Read</div>
-            </div>
-            <div class="stat-card">
-                <div class="stat-value" id="averageRating">N/A</div>
-                <div class="stat-label">Average Rating</div>
-            </div>
-            <div class="stat-card">
-                <div class="stat-value" id="totalGenres">0</div>
-                <div class="stat-label">Genres</div>
-            </div>
+        <div
+          class="progress-bar"
+          role="progressbar"
+          aria-valuenow="0"
+          aria-valuemin="0"
+          aria-valuemax="100"
+        >
+          <div class="progress-fill" id="progressFill" style="width: 0%">
+            0%
+          </div>
         </div>
-
-        <!-- Charts and Details -->
-        <div class="grid grid-2">
-            <!-- Top Genres -->
-            <div class="card">
-                <div class="card-header">
-                    <h2 class="card-title">Top Genres</h2>
-                </div>
-                <div class="card-body" id="topGenresContent">
-                    <p style="color: var(--color-text-light);">No genre data available</p>
-                </div>
-            </div>
-
-            <!-- 7-Day Trend Chart -->
-            <div class="card">
-                <div class="card-header">
-                    <h2 class="card-title">Last 7 Days Trend</h2>
-                </div>
-                <div class="card-body" id="trendChart"></div>
-            </div>
-
-            <!-- Recently Read -->
-            <div class="card">
-                <div class="card-header">
-                    <h2 class="card-title">Recently Read</h2>
-                </div>
-                <div class="card-body" id="recentlyReadContent">
-                    <p style="color: var(--color-text-light);">No books read yet</p>
-                </div>
-            </div>
+        <div
+          id="goalCompleteAlert"
+          class="alert alert-success"
+          style="display: none"
+        >
+          🎉 <span id="goalCompleteText"></span>
         </div>
+      </div>
 
-        <!-- Reading Insights -->
+      <!-- Stats Grid -->
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-value" id="totalBooks">0</div>
+          <div class="stat-label">Total Books</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value" id="readBooks">0</div>
+          <div class="stat-label">Books Read</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value" id="readingBooks">0</div>
+          <div class="stat-label">Currently Reading</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value" id="toReadBooks">0</div>
+          <div class="stat-label">To Read</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value" id="averageRating">N/A</div>
+          <div class="stat-label">Average Rating</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value" id="totalGenres">0</div>
+          <div class="stat-label">Genres</div>
+        </div>
+      </div>
+
+      <!-- Charts and Details -->
+      <div class="grid grid-2">
+        <!-- Top Genres -->
         <div class="card">
-            <div class="card-header">
-                <h2 class="card-title">Reading Insights</h2>
-            </div>
-            <div class="card-body">
-                <div class="grid grid-3">
-                    <div class="insight-item">
-                        <h3>Most Read Genre</h3>
-                        <p class="insight-value" id="mostReadGenre">N/A</p>
-                    </div>
-                    <div class="insight-item">
-                        <h3>Books This Year</h3>
-                        <p class="insight-value" id="booksThisYear">0</p>
-                    </div>
-                    <div class="insight-item">
-                        <h3>Completion Rate</h3>
-                        <p class="insight-value" id="completionRate">0%</p>
-                    </div>
-                </div>
-            </div>
+          <div class="card-header">
+            <h2 class="card-title">Top Genres</h2>
+          </div>
+          <div class="card-body" id="topGenresContent">
+            <p style="color: var(--color-text-light)">
+              No genre data available
+            </p>
+          </div>
         </div>
+
+        <!-- 7-Day Trend Chart -->
+        <div class="card">
+          <div class="card-header">
+            <h2 class="card-title">Last 7 Days Trend</h2>
+          </div>
+          <div class="card-body" id="trendChart"></div>
+        </div>
+
+        <!-- Recently Read -->
+        <div class="card">
+          <div class="card-header">
+            <h2 class="card-title">Recently Read</h2>
+          </div>
+          <div class="card-body" id="recentlyReadContent">
+            <p style="color: var(--color-text-light)">No books read yet</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Reading Insights -->
+      <div class="card">
+        <div class="card-header">
+          <h2 class="card-title">Reading Insights</h2>
+        </div>
+        <div class="card-body">
+          <div class="grid grid-3">
+            <div class="insight-item">
+              <h3>Most Read Genre</h3>
+              <p class="insight-value" id="mostReadGenre">N/A</p>
+            </div>
+            <div class="insight-item">
+              <h3>Books This Year</h3>
+              <p class="insight-value" id="booksThisYear">0</p>
+            </div>
+            <div class="insight-item">
+              <h3>Completion Rate</h3>
+              <p class="insight-value" id="completionRate">0%</p>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
 
     <script src="./scripts/componentsLoader.js"></script>
     <script src="./scripts/dashboard.js"></script>
-</body>
-
+  </body>
 </html>
