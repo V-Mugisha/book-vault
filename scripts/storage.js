@@ -12,7 +12,8 @@ const seedBooks = [
     rating: 5,
     notes: "Epic fantasy series starter. Complex characters and intricate plot.",
     dateAdded: "2024-01-15",
-    dateRead: "2024-02-20"
+    dateRead: "2024-02-20",
+    pages: 694
   },
   {
     id: "2",
@@ -25,7 +26,8 @@ const seedBooks = [
     rating: 5,
     notes: "Powerful story about justice and morality in the American South.",
     dateAdded: "2024-01-10",
-    dateRead: "2024-01-25"
+    dateRead: "2024-01-25",
+    pages: 324
   },
   {
     id: "3",
@@ -38,7 +40,8 @@ const seedBooks = [
     rating: 5,
     notes: "Chilling vision of totalitarian future. Still relevant today.",
     dateAdded: "2024-02-01",
-    dateRead: "2024-02-15"
+    dateRead: "2024-02-15",
+    pages: 298
   },
   {
     id: "4",
@@ -51,7 +54,8 @@ const seedBooks = [
     rating: 4,
     notes: "Classic romance with witty social commentary.",
     dateAdded: "2024-02-10",
-    dateRead: "2024-03-05"
+    dateRead: "2024-03-05",
+    pages: 432
   },
   {
     id: "5",
@@ -64,7 +68,8 @@ const seedBooks = [
     rating: 4,
     notes: "Beautiful prose depicting the Jazz Age and American Dream.",
     dateAdded: "2024-03-01",
-    dateRead: "2024-03-20"
+    dateRead: "2024-03-20",
+    pages: 218
   },
   {
     id: "6",
@@ -75,7 +80,8 @@ const seedBooks = [
     genre: "Fantasy",
     status: "reading",
     notes: "Currently on chapter 8. Loving the adventure!",
-    dateAdded: "2024-03-15"
+    dateAdded: "2024-03-15",
+    pages: 310
   },
   {
     id: "7",
@@ -88,7 +94,8 @@ const seedBooks = [
     rating: 5,
     notes: "Magical introduction to the wizarding world.",
     dateAdded: "2024-01-05",
-    dateRead: "2024-01-18"
+    dateRead: "2024-01-18",
+    pages: 309
   },
   {
     id: "8",
@@ -101,7 +108,8 @@ const seedBooks = [
     rating: 3,
     notes: "Interesting perspective on teenage angst and alienation.",
     dateAdded: "2024-02-20",
-    dateRead: "2024-03-10"
+    dateRead: "2024-03-10",
+    pages: 277
   },
   {
     id: "9",
@@ -112,7 +120,8 @@ const seedBooks = [
     genre: "Fantasy",
     status: "to-read",
     notes: "Planning to read after finishing The Hobbit.",
-    dateAdded: "2024-03-20"
+    dateAdded: "2024-03-20",
+    pages: 1178
   },
   {
     id: "10",
@@ -122,7 +131,8 @@ const seedBooks = [
     publicationYear: 1932,
     genre: "Dystopian",
     status: "to-read",
-    dateAdded: "2024-03-22"
+    dateAdded: "2024-03-22",
+    pages: 288
   },
   {
     id: "11",
@@ -135,7 +145,8 @@ const seedBooks = [
     rating: 4,
     notes: "Wonderful allegorical fantasy series.",
     dateAdded: "2024-01-20",
-    dateRead: "2024-02-28"
+    dateRead: "2024-02-28",
+    pages: 767
   },
   {
     id: "12",
@@ -146,7 +157,8 @@ const seedBooks = [
     genre: "Science Fiction",
     status: "reading",
     notes: "Complex world-building. Taking my time with this one.",
-    dateAdded: "2024-03-10"
+    dateAdded: "2024-03-10",
+    pages: 658
   },
   {
     id: "13",
@@ -159,7 +171,8 @@ const seedBooks = [
     rating: 5,
     notes: "Hilarious and clever sci-fi comedy. Don't forget your towel!",
     dateAdded: "2024-02-05",
-    dateRead: "2024-02-18"
+    dateRead: "2024-02-18",
+    pages: 224
   },
   {
     id: "14",
@@ -169,7 +182,8 @@ const seedBooks = [
     publicationYear: 1953,
     genre: "Dystopian",
     status: "to-read",
-    dateAdded: "2024-03-25"
+    dateAdded: "2024-03-25",
+    pages: 194
   },
   {
     id: "15",
@@ -182,7 +196,8 @@ const seedBooks = [
     rating: 4,
     notes: "Inspiring tale about following your dreams.",
     dateAdded: "2024-01-30",
-    dateRead: "2024-02-12"
+    dateRead: "2024-02-12",
+    pages: 208
   },
   {
     id: "16",
@@ -192,9 +207,11 @@ const seedBooks = [
     publicationYear: 2005,
     genre: "Historical Fiction",
     status: "to-read",
-    dateAdded: "2024-03-28"
+    dateAdded: "2024-03-28",
+    pages: 552
   }
 ];
+
 
 const storage = {
   getBooks: () => {
@@ -235,6 +252,7 @@ let statusFilter = 'all';
 let genreFilter = 'all';
 let sortBy = 'dateAdded';
 let isRegexSearch = false;
+let sortDirection = { title: 'asc', pages: 'asc' };
 
 // Render star rating
 const renderStars = (rating) => {
@@ -276,6 +294,7 @@ const renderBooksTable = () => {
           ${getStatusLabel(book.status)}
         </span>
       </td>
+       <td>${book.pages}</td>
       <td>${renderStars(book.rating)}</td>
       <td>
         <div class="table-actions">
@@ -300,6 +319,9 @@ const renderBooksTable = () => {
     `;
     tbody.appendChild(tr);
   });
+
+  document.getElementById('sortTitleIndicator').textContent = sortDirection.title === 'asc' ? '↑' : '↓';
+  document.getElementById('sortPagesIndicator').textContent = sortDirection.pages === 'asc' ? '↑' : '↓';
 };
 
 // Render books cards
@@ -329,6 +351,7 @@ const renderBooksCards = () => {
       <div class="book-meta">
         <span>Genre: ${book.genre}</span>
         <span>Year: ${book.publicationYear}</span>
+        <span>Pages: ${book.pages}</span>
         <span>ISBN: ${book.isbn}</span>
         ${ratingDisplay}
       </div>
@@ -356,6 +379,9 @@ const renderBooksCards = () => {
     `;
     grid.appendChild(article);
   });
+
+  document.getElementById('sortTitleIndicator').textContent = sortDirection.title === 'asc' ? '↑' : '↓';
+  document.getElementById('sortPagesIndicator').textContent = sortDirection.pages === 'asc' ? '↑' : '↓';
 };
 
 // Update display
@@ -384,14 +410,17 @@ const updateDisplay = () => {
 const filterAndSortBooks = () => {
   let result = [...books];
   const searchErrorEl = document.getElementById('searchError');
+  
   // Status filter
   if (statusFilter !== 'all') {
     result = result.filter(book => book.status === statusFilter);
   }
+  
   // Genre filter
   if (genreFilter !== 'all') {
     result = result.filter(book => book.genre === genreFilter);
   }
+  
   // Search filter
   if (searchQuery) {
     if (isRegexSearch) {
@@ -430,6 +459,10 @@ const filterAndSortBooks = () => {
     switch (sortBy) {
       case 'title':
         return a.title.localeCompare(b.title);
+      case 'pages':
+        const pagesA = a.pages || 0;
+        const pagesB = b.pages || 0;
+        return sortDirection.pages === 'asc' ? pagesA - pagesB : pagesB - pagesA;
       case 'author':
         return a.author.localeCompare(b.author);
       case 'year':
@@ -498,6 +531,8 @@ document.getElementById('genreFilter').addEventListener('change', (e) => {
 
 document.getElementById('sortBy').addEventListener('change', (e) => {
   sortBy = e.target.value;
+  if (sortBy === 'title') sortDirection.title = sortDirection.title === 'asc' ? 'desc' : 'asc';
+  if (sortBy === 'pages') sortDirection.pages = sortDirection.pages === 'asc' ? 'desc' : 'asc';
   filterAndSortBooks();
 });
 

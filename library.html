@@ -82,12 +82,13 @@
             <table class="books-table">
                 <thead>
                     <tr>
-                        <th>Title</th>
+                        <th>Title <span id="sortTitleIndicator"></span></th>
                         <th>Author</th>
                         <th>Genre</th>
                         <th>Year</th>
                         <th>Status</th>
-                        <th>Rating</th>
+                        <th>Pages <span id="sortPagesIndicator"></span></th>
+                        <th>Raitngs</th>
                         <th>Actions</th>
                     </tr>
                 </thead>
@@ -99,6 +100,13 @@
         <!-- Books Cards (Mobile) -->
         <div class="books-cards-container" id="booksCardsContainer">
             <div class="grid grid-3" id="booksCardsGrid">
+            </div>
+
+            <div class="book-meta">
+                <span>Genre: ${book.genre}</span>
+                <span>Year: ${book.publicationYear}</span>
+                <span>Pages: ${book.pages || 'N/A'}</span>
+                ${ratingDisplay}
             </div>
         </div>
     </section>

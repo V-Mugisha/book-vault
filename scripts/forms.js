@@ -260,12 +260,12 @@ const validateForm = () => {
   if (!titleValidation.isValid) {
     errors.title = titleValidation.error;
     isValid = false;
-  } else {
-    const advancedValidation = validators.advanced(titleInput.value);
-    if (!advancedValidation.isValid) {
-      errors.title = advancedValidation.error;
-      isValid = false;
-    }
+  }
+  const advancedValidation = validators.advanced(titleInput.value);
+  if (!advancedValidation.isValid) {
+    errors.title =
+      (errors.title ? `${errors.title}. ` : "") + advancedValidation.error;
+    isValid = false;
   }
 
   // Author validation
