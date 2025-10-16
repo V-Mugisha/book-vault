@@ -1,0 +1,25 @@
+.test-controls {
+  margin: var(--spacing-md) 0;
+  display: flex;
+  gap: var(--spacing-sm);
+}
+
+.test-results {
+  margin-top: var(--spacing-md);
+}
+
+.test-result {
+  padding: var(--spacing-sm);
+  margin-bottom: var(--spacing-xs);
+  border-radius: var(--border-radius);
+}
+
+.test-result.pass {
+  background-color: rgba(0, 128, 0, 0.1);
+  color: green;
+}
+
+.test-result.fail {
+  background-color: rgba(255, 0, 0, 0.1);
+  color: red;
+}

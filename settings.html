@@ -1,153 +1,139 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Settings - Book Vault</title>
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
-      integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
-    />
-    <link rel="stylesheet" href="./styles/base.css" />
-    <link rel="stylesheet" href="./styles/settings.css" />
-  </head>
 
-  <body>
-    <nav id="navigation"></nav>
-    <div id="loadingSpinner" class="spinner" style="display: block"></div>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Settings - Book Vault</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+    integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" />
+  <link rel="stylesheet" href="./styles/base.css" />
+  <link rel="stylesheet" href="./styles/settings.css" />
+</head>
 
-    <div id="mainContent" class="main-container" style="display: none">
-      <header class="page-header">
-        <h1 class="page-title">Settings</h1>
-        <p class="page-description">
-          Manage your reading goals and application data
+<body>
+  <nav id="navigation"></nav>
+  <div id="loadingSpinner" class="spinner" style="display: block"></div>
+
+  <div id="mainContent" class="main-container" style="display: none">
+    <header class="page-header">
+      <h1 class="page-title">Settings</h1>
+      <p class="page-description">
+        Manage your reading goals and application data
+      </p>
+    </header>
+
+    <div id="alertMessage" class="alert" role="alert" style="display: none"></div>
+
+    <!-- Reading Goal -->
+    <div class="card">
+      <div class="card-header">
+        <h2 class="card-title">Reading Goal</h2>
+      </div>
+      <div class="card-body">
+        <p style="color: var(--color-text-light)">
+          Set your annual reading goal to track your progress throughout the
+          year.
         </p>
-      </header>
-
-      <div
-        id="alertMessage"
-        class="alert"
-        role="alert"
-        style="display: none"
-      ></div>
-
-      <!-- Reading Goal -->
-      <div class="card">
-        <div class="card-header">
-          <h2 class="card-title">Reading Goal</h2>
-        </div>
-        <div class="card-body">
-          <p style="color: var(--color-text-light)">
-            Set your annual reading goal to track your progress throughout the
-            year.
-          </p>
-          <div class="form-group">
-            <label for="readingGoal" class="form-label">
-              Books to read in <span id="currentYear"></span>
-            </label>
-            <div class="input-with-button">
-              <input
-                type="number"
-                id="readingGoal"
-                class="form-input"
-                min="1"
-                max="1000"
-              />
-              <button id="saveGoalBtn" class="btn btn-primary">
-                Save Goal
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Data Management -->
-      <div class="card">
-        <div class="card-header">
-          <h2 class="card-title">Data Management</h2>
-        </div>
-        <div class="card-body">
-          <p style="color: var(--color-text-light)">
-            Export your library data for backup or import existing data from a
-            previous backup.
-          </p>
-
-          <div class="data-section">
-            <!-- Export -->
-            <div class="data-item">
-              <h3>Export Data</h3>
-              <p>Download all your books and settings as a JSON file.</p>
-              <button id="exportBtn" class="btn btn-secondary">
-                📥 Export Data
-              </button>
-            </div>
-
-            <!-- Import -->
-            <div class="data-item">
-              <h3>Import Data</h3>
-              <p>
-                Upload a previously exported JSON file to restore your data.
-              </p>
-              <label
-                for="importFile"
-                class="btn btn-secondary"
-                style="cursor: pointer"
-              >
-                📤 Import Data
-              </label>
-              <input
-                type="file"
-                id="importFile"
-                accept=".json"
-                style="display: none"
-              />
-            </div>
-
-            <!-- Clear Data -->
-            <div class="data-item danger">
-              <h3>Clear All Data</h3>
-              <p>
-                Permanently delete all books and settings. This action cannot be
-                undone.
-              </p>
-              <button id="clearDataBtn" class="btn btn-error">
-                🗑️ Clear All Data
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Application Info -->
-      <div class="card">
-        <div class="card-header">
-          <h2 class="card-title">Application Information</h2>
-        </div>
-        <div class="card-body">
-          <div class="info-row">
-            <span>Version:</span>
-            <span>1.0.0</span>
-          </div>
-          <div class="info-row">
-            <span>Storage:</span>
-            <span>localStorage</span>
-          </div>
-          <div class="info-row">
-            <span>Total Books:</span>
-            <span id="totalBooks">0</span>
+        <div class="form-group">
+          <label for="readingGoal" class="form-label">
+            Books to read in <span id="currentYear"></span>
+          </label>
+          <div class="input-with-button">
+            <input type="number" id="readingGoal" class="form-input" min="1" max="1000" />
+            <button id="saveGoalBtn" class="btn btn-primary">
+              Save Goal
+            </button>
           </div>
         </div>
       </div>
     </div>
 
-    <script src="./scripts/componentsLoader.js"></script>
-    <script src="./scripts/settings.js"></script>
-  </body>
+    <!-- Data Management -->
+    <div class="card">
+      <div class="card-header">
+        <h2 class="card-title">Data Management</h2>
+      </div>
+      <div class="card-body">
+        <p style="color: var(--color-text-light)">
+          Export your library data for backup or import existing data from a
+          previous backup.
+        </p>
+
+        <div class="data-section">
+          <!-- Export -->
+          <div class="data-item">
+            <h3>Export Data</h3>
+            <p>Download all your books and settings as a JSON file.</p>
+            <button id="exportBtn" class="btn btn-secondary">
+              📥 Export Data
+            </button>
+          </div>
+
+          <!-- Import -->
+          <div class="data-item">
+            <h3>Import Data</h3>
+            <p>
+              Upload a previously exported JSON file to restore your data.
+            </p>
+            <label for="importFile" class="btn btn-secondary" style="cursor: pointer">
+              📤 Import Data
+            </label>
+            <input type="file" id="importFile" accept=".json" style="display: none" />
+          </div>
+
+          <!-- Run Tests -->
+          <div class="data-item">
+            <h3>Run Tests</h3>
+            <p>Click this button to run validation and regex tests in another tab.</p>
+            <a href="./tests.html" target="_blank"  rel="no-referrer">
+              <button id="exportBtn" class="btn btn-secondary">
+                ⚙ Run Tests 
+              </button>
+            </a>
+          </div>
+
+          <!-- Clear Data -->
+          <div class="data-item danger">
+            <h3>Clear All Data</h3>
+            <p>
+              Permanently delete all books and settings. This action cannot be
+              undone.
+            </p>
+            <button id="clearDataBtn" class="btn btn-error">
+              🗑️ Clear All Data
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Application Info -->
+    <div class="card">
+      <div class="card-header">
+        <h2 class="card-title">Application Information</h2>
+      </div>
+      <div class="card-body">
+        <div class="info-row">
+          <span>Version:</span>
+          <span>1.0.0</span>
+        </div>
+        <div class="info-row">
+          <span>Storage:</span>
+          <span>localStorage</span>
+        </div>
+        <div class="info-row">
+          <span>Total Books:</span>
+          <span id="totalBooks">0</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="./scripts/componentsLoader.js"></script>
+  <script src="./scripts/settings.js"></script>
+</body>
+
 </html>

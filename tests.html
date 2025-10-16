@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Test Suite - Book Vault</title>
+    <link rel="stylesheet" href="./styles/base.css" />
+    <link rel="stylesheet" href="./styles/tests.css" />
+  </head>
+
+  <body>
+    <header>
+      <h1>Test Suite - Book Vault</h1>
+      <p>Test form validation and regex patterns.</p>
+    </header>
+    <main>
+      <section class="test-controls">
+        <button id="runAllTests" class="btn btn-primary">Run All Tests</button>
+        <button id="runValidationTests" class="btn btn-secondary">
+          Run Validation Tests
+        </button>
+        <button id="runRegexTests" class="btn btn-secondary">
+          Run Regex Tests
+        </button>
+      </section>
+      <section class="test-results" id="testResults">
+        <h2>Results</h2>
+        <ul id="resultsList"></ul>
+      </section>
+    </main>
+    <script type="module" src="./scripts/tests.js"></script>
+  </body>
+</html>
