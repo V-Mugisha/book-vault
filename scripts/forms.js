@@ -1,4 +1,3 @@
-// import { validators } from "./utils";
 const validators = window.validators;
 
 // Storage functionality

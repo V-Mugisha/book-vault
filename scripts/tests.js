@@ -1,4 +1,4 @@
-import { validators } from "./utils.js";
+const validators = window.validators
 
 // IIFE to encapsulate test logic
 (function () {
