@@ -415,14 +415,8 @@ const updateDisplay = () => {
       emptyStateDescription.textContent =
         "Try adjusting your filters or search query.";
     }
-
-    booksTableContainer.style.display = "none";
-    booksCardsContainer.style.display = "none";
   } else {
     emptyState.style.display = "none";
-    
-    booksTableContainer.style.display = "table"; // Ensure table is visible on desktop
-    booksCardsContainer.style.display = "block";
     renderBooksTable();
     renderBooksCards();
   }
