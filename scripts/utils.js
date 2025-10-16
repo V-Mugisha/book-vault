@@ -1,4 +1,4 @@
-export const validators = {
+window.validators = {
   isbn: (value) => {
     const isbn10Pattern = /^(?:\d{9}[\dX])$/;
     const isbn13Pattern = /^(?:978|979)\d{10}$/;

@@ -1,4 +1,5 @@
-import { validators } from "./utils";
+// import { validators } from "./utils";
+const validators = window.validators;
 
 // Storage functionality
 const BOOKS_KEY = "bookVault_books";
@@ -68,6 +69,23 @@ const initForm = () => {
   // Set current year as default
   yearInput.value = new Date().getFullYear();
 
+  // Populate status options
+  statusSelect.innerHTML = `
+    <option value="read">Read</option>
+    <option value="reading">Currently Reading</option>
+    <option value="to-read">To Read</option>
+  `;
+
+  // Populate rating options
+  ratingSelect.innerHTML = `
+    <option value="">Select rating</option>
+    <option value="1">★☆☆☆☆</option>
+    <option value="2">★★☆☆☆</option>
+    <option value="3">★★★☆☆</option>
+    <option value="4">★★★★☆</option>
+    <option value="5">★★★★★</option>
+  `;
+
   if (editId) {
     // Edit mode
     document.getElementById("pageTitle").textContent = "Edit Book";
@@ -79,12 +97,12 @@ const initForm = () => {
     const book = books.find((b) => b.id === editId);
 
     if (book) {
-      titleInput.value = book.title;
-      authorInput.value = book.author;
-      isbnInput.value = book.isbn;
-      yearInput.value = book.publicationYear;
-      genreInput.value = book.genre;
-      statusSelect.value = book.status;
+      titleInput.value = book.title || "";
+      authorInput.value = book.author || "";
+      isbnInput.value = book.isbn || "";
+      yearInput.value = book.publicationYear || new Date().getFullYear();
+      genreInput.value = book.genre || "";
+      statusSelect.value = book.status || "to-read";
       ratingSelect.value = book.rating || "";
       dateReadInput.value = book.dateRead || "";
       notesTextarea.value = book.notes || "";
@@ -93,9 +111,14 @@ const initForm = () => {
       if (book.status === "read") {
         ratingGroup.style.display = "block";
         dateReadGroup.style.display = "block";
+      } else {
+        ratingGroup.style.display = "none";
+        dateReadGroup.style.display = "none";
       }
     } else {
       // Book not found, redirect to library
+      errorMessage.textContent = "Book not found.";
+      errorMessage.style.display = "block";
       window.location.href = "library.html";
     }
   }
@@ -226,34 +249,43 @@ form.addEventListener("submit", (e) => {
 
   try {
     const formData = {
-      title: titleInput.value,
-      author: authorInput.value,
-      isbn: isbnInput.value,
+      title: titleInput.value.trim(),
+      author: authorInput.value.trim(),
+      isbn: isbnInput.value.trim(),
       publicationYear: parseInt(yearInput.value),
-      genre: genreInput.value,
+      genre: genreInput.value.trim(),
       status: statusSelect.value,
       rating: ratingSelect.value ? parseInt(ratingSelect.value) : undefined,
-      notes: notesTextarea.value,
       dateRead: dateReadInput.value || undefined,
+      notes: notesTextarea.value.trim(),
     };
 
     if (editId) {
-      storage.updateBook(editId, formData);
-      successMessage.textContent = "Book updated successfully!";
+      const updatedBook = storage.updateBook(editId, formData);
+      if (updatedBook) {
+        successMessage.textContent = "Book updated successfully!";
+        successMessage.style.display = "block";
+        setTimeout(() => {
+          window.location.href = "library.html";
+        }, 1200);
+      } else {
+        errorMessage.textContent = "Failed to update book.";
+        errorMessage.style.display = "block";
+      }
     } else {
+      // Add new book
       storage.addBook(formData);
       successMessage.textContent = "Book added successfully!";
+      successMessage.style.display = "block";
+      form.reset();
+      setTimeout(() => {
+        window.location.href = "library.html";
+      }, 1200);
     }
-
-    successMessage.style.display = "flex";
-
-    // Redirect after 1.5 seconds
-    setTimeout(() => {
-      window.location.href = "library.html";
-    }, 1500);
   } catch (error) {
     errorMessage.textContent = "An error occurred. Please try again.";
-    errorMessage.style.display = "flex";
+    errorMessage.style.display = "block";
+  } finally {
     isSubmitting = false;
     submitBtn.disabled = false;
     submitBtn.textContent = editId ? "Update Book" : "Add Book";
