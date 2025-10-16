@@ -1,4 +1,4 @@
-const validators = window.validators
+const validators = window.validators;
 
 // IIFE to encapsulate test logic
 (function () {
