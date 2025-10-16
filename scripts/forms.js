@@ -260,6 +260,12 @@ const validateForm = () => {
   if (!titleValidation.isValid) {
     errors.title = titleValidation.error;
     isValid = false;
+  } else {
+    const advancedValidation = validators.advanced(titleInput.value);
+    if (!advancedValidation.isValid) {
+      errors.title = advancedValidation.error;
+      isValid = false;
+    }
   }
 
   // Author validation
@@ -284,11 +290,11 @@ const validateForm = () => {
   }
 
   // Genre validation
-    const genreValidation = validators.genre(genreInput.value);
-    if (!genreValidation.isValid) {
-        errors.genre = genreValidation.error;
-        isValid = false;
-    }
+  const genreValidation = validators.genre(genreInput.value);
+  if (!genreValidation.isValid) {
+    errors.genre = genreValidation.error;
+    isValid = false;
+  }
 
   // Date validation (only if status is read and date is provided)
   if (statusSelect.value === "read" && dateReadInput.value) {
