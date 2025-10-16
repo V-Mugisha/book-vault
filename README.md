@@ -3,6 +3,10 @@
 ## Overview
 Book Vault is a lightweight, application designed to help users manage their personal book library. It allows users to add, edit, and organize books, track reading progress, set annual reading goals, and export/import their data in JSON format.
 
+## Links
+- [Click here to see demo video on YouTube](https://youtu.be/7BnnRQ_KutA)
+- [Click here to interact with app live on GitHub pages](https://v-mugisha.github.io/book-vault/)
+
 ## Features
 - **Library Management**: Add, edit, and view books with details like title, author, ISBN, genre, and status.
 - **Reading Goals**: Set and track an annual reading goal with progress visualization.
