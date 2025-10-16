@@ -415,8 +415,14 @@ const updateDisplay = () => {
       emptyStateDescription.textContent =
         "Try adjusting your filters or search query.";
     }
+
+    booksTableContainer.style.display = "none";
+    booksCardsContainer.style.display = "none";
   } else {
     emptyState.style.display = "none";
+    
+    booksTableContainer.style.display = "table"; // Ensure table is visible on desktop
+    booksCardsContainer.style.display = "block";
     renderBooksTable();
     renderBooksCards();
   }
@@ -450,13 +456,17 @@ const filterAndSortBooks = () => {
               regex.test(book.genre)
           );
           searchErrorEl.style.display = "none";
-        } catch {
-          searchErrorEl.textContent = "Invalid regex pattern";
+          console.log("Regex applied:", regex, "Results:", result.length);
+        } catch (e) {
+          searchErrorEl.textContent = "Invalid regex pattern: " + e.message;
           searchErrorEl.style.display = "block";
+          console.error("Regex error:", e);
+          result = []; // Clear results on invalid pattern to trigger empty state
         }
       } else {
         searchErrorEl.textContent = "Invalid regex pattern";
         searchErrorEl.style.display = "block";
+        result = []; // Clear results on invalid pattern
       }
     } else {
       const query = searchQuery.toLowerCase();

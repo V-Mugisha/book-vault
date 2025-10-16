@@ -116,15 +116,11 @@
               <th>Status</th>
               <th>
                 Pages
-                <button
-                  id="sortTitleIndicator"
-                  class="sort-btn"
-                  aria-label="Sort by pages"
-                >
-                  ↑
+                <button id="sortPagesIndicator"
+                  class="sort-btn" aria-label="Sort by pages" > ↑
                 </button>
               </th>
-              <th>Raitngs</th>
+              <th>Ratings</th>
               <th>Actions</th>
             </tr>
           </thead>
@@ -135,13 +131,6 @@
       <!-- Books Cards (Mobile) -->
       <div class="books-cards-container" id="booksCardsContainer">
         <div class="grid grid-3" id="booksCardsGrid"></div>
-
-        <div class="book-meta">
-          <span>Genre: ${book.genre}</span>
-          <span>Year: ${book.publicationYear}</span>
-          <span>Pages: ${book.pages || 'N/A'}</span>
-          ${ratingDisplay}
-        </div>
       </div>
     </section>
 
