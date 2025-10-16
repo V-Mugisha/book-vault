@@ -1,7 +1,7 @@
 # Book Vault
 
 ## Overview
-Book Vault is a lightweight, browser-based application designed to help users manage their personal book library. It allows users to add, edit, and organize books, track reading progress, set annual reading goals, and export/import their data in JSON format. The app features a responsive design, accessible interface, and a library view with table and card layouts.
+Book Vault is a lightweight, application designed to help users manage their personal book library. It allows users to add, edit, and organize books, track reading progress, set annual reading goals, and export/import their data in JSON format.
 
 ## Features
 - **Library Management**: Add, edit, and view books with details like title, author, ISBN, genre, and status.
