@@ -446,6 +446,40 @@ body {
   stroke: var(--color-accent);
 }
 
+.sort-btn {
+    background: none;
+    border: none;
+    font-size: 0.75rem;
+    color: var(--color-text);
+    padding: 0 0.25rem;
+    cursor: pointer;
+    vertical-align: middle;
+    transition: color 0.2s ease;
+}
+
+.sort-btn:hover,
+.sort-btn:focus {
+    color: var(--color-primary);
+    outline: none;
+}
+
+.sort-btn:focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+}
+
+.books-table th {
+    position: relative;
+    padding-right: 1.5rem;
+}
+
+.books-table th button {
+    position: absolute;
+    right: 0.25rem;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
 @media (min-width: 1024px) {
   .books-table-container {
     display: block;

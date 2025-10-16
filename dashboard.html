@@ -10,6 +10,8 @@
     <title>Book Vault</title>
     <link rel="stylesheet" href="./styles/base.css">
     <link rel="stylesheet" href="./styles/dashboard.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 
 <body>
@@ -75,6 +77,14 @@
                 <div class="card-body" id="topGenresContent">
                     <p style="color: var(--color-text-light);">No genre data available</p>
                 </div>
+            </div>
+
+            <!-- 7-Day Trend Chart -->
+            <div class="card">
+                <div class="card-header">
+                    <h2 class="card-title">Last 7 Days Trend</h2>
+                </div>
+                <div class="card-body" id="trendChart"></div>
             </div>
 
             <!-- Recently Read -->

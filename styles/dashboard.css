@@ -313,6 +313,11 @@ body {
   color: var(--color-primary);
 }
 
+#trendChart canvas {
+    width: 100% !important;
+    height: auto !important;
+}
+
 @media (max-width: 768px) {
   .main-container {
     padding: var(--spacing-md) var(--spacing-sm);
